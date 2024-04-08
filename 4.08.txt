@@ -1,0 +1,106 @@
+# 1. 총정리
+## programs
+
+  - <프로그램> <옵션> <인수>
+  - ch
+  - 디렉토리, ....
+  - ex) ls -l /etc/passwd
+
+  1) date
+    시간을 나타냄
+    표준출력을 뜨기 떄문에 date | cut -c1 가능
+    
+  2) who
+    - 로그인 유저 정보
+    # usrs/your_name
+    
+  3) echo
+    - 프린트 한다. 변수가 있어도 출력 가능
+    - 공백 무시
+    
+  4) ls
+    파일 디렉터리 조회
+    - -l : 자세히 설명
+        -d : directory
+    - -a : 숨겨진 파일까지 다 보여줌.
+    - 멀티컬럼으로 stdout
+    - 인수가 디렉터리
+    - 인수로 파일명 쓰면 이름 그대로 반환
+    
+  5) cat + 파일 1, 2, ....n
+    - concatenate
+    - 여러가지 파일을 순차적으로 붙여서 읽어줌
+    - 인수로 파일명
+    - 파일 이어붙이기 가능 (컨텐츠 확장할 때 사용한다.)
+    - 적은 순서대로 붙임
+    
+  6) wc
+    - 라인, 단어, 글자 수 세기
+    - -l, -w, -c
+    - 인수가 없으면 stdin으로 받는다.
+    
+  7) cp
+    - copy fromA toB
+    - 다른 디렉터리일 경우
+      - 상대경로로 쓰는 게 편함
+      - 같은 파일명일 경우 이름 안 써도 됨
+        ex) cp b ./notes
+      - 여러 파일 복사 가능
+        cp 1 2 3 4 5 6
+        1-5 from, 6 to
+        마지막에 쓴 디렉터리로 넘어감
+      q. OSS에서 notes/b를 복사해서 가져오는 코드 작성하기
+      runeer
+      OSS
+      ㄴnotes
+        ㄴb
+      cp ./OSS/notes/b .
+      
+  8) mv
+    - move
+    - mv fromA toB
+    mv 1 2 3 4 5 "6"
+    - 파일명 변경할 때
+      mv a aa # a 사라지고 aa
+    - 디렉터리 A -> B
+      sample -> notes
+      디렉터리를 전부 옮길 수도 있다. (이동)
+    ***기존에 존재하는 파일명일 경우, 덮어쓴다.
+
+  9) rm
+    - remove
+    - 파일명, 디렉터리
+      -디렉터리가 비어있어야 함
+    - -r 옵션 사용하면 가득 찬 디렉터리 삭제가능.
+    - 여러개 지울 수 있다.
+    rm a b c d
+    rm *.txt
+    - 확인하고 지울 것.
+
+  10) rmdir
+  - empty만 가능
+  
+## 디렉터리 관련 명령
+1) pwd
+print working directory
+current directory
+
+2) cd
+- .. 상위
+- . 현재
+- cd #home으로 간다.
+
+Q. notes -> runener로 한번에
+ cd ../..
+
+3) mkdir
+- make directory
+
+4) ln
+  - link files
+  - ln fromA fromB
+  - a, b
+  - 메모리 효율, 항상 동기화됨
+  - 다른 디렉터리에 동일한 파일을 위치하고 싶을 때
+  - ls -l로 확인 가능함
+  - 파일 하나를 삭제해도 다른 파일은 삭제되지 않는다.
