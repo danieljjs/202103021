@@ -1,5 +1,6 @@
 { pkgs }: {
   deps = [
+    pkgs.cln
     pkgs.age
     pkgs.vim
     pkgs.q
