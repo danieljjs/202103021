@@ -1,0 +1,28 @@
+#!/bin/bash
+
+user="$1"
+
+if [ $# -ne 1 ]
+	then
+	echo "1개의 인수만 입력 가능합니다."
+	exit 1
+fi
+
+log=$whoami
+
+if [ -z $log ]
+	then
+	echo "로그인한 사람이 없습니다."
+	exit 2
+fi
+
+for var in log
+do
+if [ $var =  $user ]
+	then
+	echo "$user 로그인함!"
+	break;
+else
+	sleep 60
+fi
+done

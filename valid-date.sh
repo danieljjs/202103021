@@ -100,4 +100,3 @@ elif [ $((day)) -lt 1]
 fi
 
 echo "$month $day $year"
-
